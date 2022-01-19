@@ -1,0 +1,45 @@
+.productCard {
+  background-color: #fff;
+  width: 90vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.productDesc {
+  margin: 2vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+.productText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: center;
+}
+.productText p {
+  vertical-align: center;
+}
+.productimg {
+  height: 15vh;
+  margin: 0 2vh;
+}
+.MmLogo {
+  height: 15px;
+}
+.productprice {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.productOptions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.productOptions button {
+  color: #505971;
+  width: 40%;
+  border: none;
+  background-color: transparent;
+}

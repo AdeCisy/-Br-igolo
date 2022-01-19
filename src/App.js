@@ -1,11 +1,10 @@
 import './App.css';
+import FirstHome from './components/FirstHome';
 
 function App() {
   return (
     <div className="App">
-     
-          Learn React
-
+      <FirstHome />
     </div>
   );
 }
