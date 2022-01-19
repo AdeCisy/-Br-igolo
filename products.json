@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Peinture intérieur Blanc Satin Murs & Plafonds Bicouche Acrylique 10L - 100m² - Blanc",
+    "productRef": "ME10486098",
+    "prix": 49,
+    "vendeur": "Renaulac",
+    "imgUrl": "https://cdn.manomano.com/peinture-interieur-blanc-satin-murs-plafonds-bicouche-acrylique-10l-100m-renaulac-blanc-P-4063946-10806872_1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "SAVY - Rouleau anti-goutte avec rallonge - 180 mm",
+    "productRef": "ME3619769",
+    "prix": 17,
+    "vendeur": "Renaulac",
+    "imgUrl": "https://cdn.manomano.com/images/images_products/4298710/L/8831942_1.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Bac peinture - 230 mm",
+    "productRef": "ME6352846",
+    "prix": 5,
+    "vendeur": "Depan SA",
+    "imgUrl": "https://cdn.manomano.com/images/images_products/149211/L/450136_1.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Pinceaux jetables, 5 pcs, 5 Pcs",
+    "productRef": "ME10229201",
+    "prix": 7,
+    "vendeur": "Marco Brigolo",
+    "imgUrl": "https://cdn.manomano.com/images/images_products/17434055/L/43900892_1.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Bâche de protection 10 microns STANDARD 4x5m soit 20 m²",
+    "productRef": "ME7534240",
+    "prix": 3,
+    "vendeur": "Marco Brigolo",
+    "imgUrl": "https://cdn.manomano.com/images/images_products/3474309/L/7812743_1.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Ruban adhésif papier masquage 3M 101E 19mm - Blanc",
+    "productRef": "ME4618111",
+    "prix": 2,
+    "vendeur": "Depan SA",
+    "imgUrl": "https://cdn.manomano.com/images/images_products/191104/L/4762528_1.jpg"
+  },
+  {
+    "id": 7,
+    "name": "FINIXA - Combinaison de peinture - Blanche - Taille M - TSO08",
+    "productRef": "ME42954695",
+    "prix": 15,
+    "vendeur": "Pièces Pneus",
+    "imgUrl": "https://cdn.manomano.com/images/images_products/29087/L/42235652_1.jpg"
+  }
+]
