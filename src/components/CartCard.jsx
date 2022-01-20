@@ -1,7 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from './style/CartCard.module.css';
 
 export default function CartCard({produit} , menuCursor, handleCursor) {
+
+  const [quantity, setQuantity] = useState(1);
+  const handleMinus = () => {
+    setQuantity(quantity -1)
+  } 
+  const handlePlus = () => {
+    setQuantity(quantity +1)
+  } 
 
   return (
     <div className={styles.productCard}>
@@ -14,11 +22,14 @@ export default function CartCard({produit} , menuCursor, handleCursor) {
         </div>
       </div>
       <div className={styles.productprice}>
-        <h3>1</h3>
+        <div className={styles.quantity}>
+        <button className={styles.quantityMinus} onClick={() => handleMinus()}></button>
+        <h3 className={styles.quantityNumber}>{quantity}</h3>
+        <button className={styles.quantityPlus} onClick={() => handlePlus()}></button>
+        </div>
         <h2>{produit.prix} €</h2>
       </div>
       <div className={styles.productOptions}>
-        {/* { menuCursor!==1 && <button onClick={() => handleCursor(1)}><img className={styles.icon} src="/assets/icon-cart.png" alt="icon cart"/>Panier</button>} */}
         { menuCursor!==2 && <button onClick={() => handleCursor(2)}>
           <img className={styles.icon} src="/assets/icon-pin.png" alt="icon pin"/>
           Mettre de côté</button>}
