@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styles from "./style/CartCard.module.css";
 import CartProductsContext from "../contexts/cartProducts";
 
@@ -17,6 +17,14 @@ export default function CartCard(
   useEffect(() => {
     console.table(cartProducts);
   }, [cartProducts]);
+
+  const [quantity, setQuantity] = useState(1);
+  const handleMinus = () => {
+    setQuantity(quantity -1)
+  } 
+  const handlePlus = () => {
+    setQuantity(quantity +1)
+  } 
 
   return (
     <div className={styles.productCard}>
@@ -40,12 +48,15 @@ export default function CartCard(
         </div>
       </div>
       <div className={styles.productprice}>
-        <h3>1</h3>
+        <div className={styles.quantity}>
+        <button className={styles.quantityMinus} onClick={() => handleMinus()}></button>
+        <h3 className={styles.quantityNumber}>{quantity}</h3>
+        <button className={styles.quantityPlus} onClick={() => handlePlus()}></button>
+        </div>
         <h2>{produit.prix} €</h2>
       </div>
       <div className={styles.productOptions}>
-        {/* { menuCursor!==1 && <button onClick={() => handleCursor(1)}><img className={styles.icon} src="/assets/icon-cart.png" alt="icon cart"/>Panier</button>} */}
-        {menuCursor !== 2 && (
+         {menuCursor !== 2 && (
           <button onClick={() => handleCursor(2)}>
             <img
               className={styles.icon}
