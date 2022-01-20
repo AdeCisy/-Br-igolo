@@ -20,6 +20,9 @@
 .productText p {
   vertical-align: center;
 }
+.seller {
+  margin-bottom: 0;
+}
 .productimg {
   height: 15vh;
   margin: 0 2vh;

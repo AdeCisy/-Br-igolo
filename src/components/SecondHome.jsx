@@ -51,7 +51,7 @@ export default function SecondHome() {
       <div className={styles.cartPrice}>
         <div className={styles.cartSecondContainer}>
           <div className={styles.cartText}>
-            <h4>Total du panier</h4>
+          <h3>Total du panier</h3>
             <p>Frais de livraison calculés à l'étape suivante</p>
           </div>
           <h2>305 €</h2>

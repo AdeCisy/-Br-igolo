@@ -10,7 +10,7 @@ export default function CartCard({produit} , menuCursor, handleCursor) {
         <img className={styles.productimg} src={produit.imgUrl} alt={produit.name} />
         <div className={styles.productText}>
           <h4>{produit.name}</h4>
-          <p>Vendu par {produit.vendeur}.</p>
+          <p className={styles.seller}>Vendu par {produit.vendeur}.</p>
           <p>Livraison par <img className={styles.MmLogo} src="https://www.sdbpro.fr/wp-content/uploads/2018/09/Picto-ManoMano.jpg" alt="logo Manomano"/></p>
         </div>
       </div>

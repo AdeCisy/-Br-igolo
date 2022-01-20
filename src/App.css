@@ -6,3 +6,16 @@ body {
   background-color: #ECEDF0;
   font-family: 'Open Sans', sans-serif;
 }
+p {
+  font-size: 12px;
+}
+h4 {
+  font-size: 14px;
+}
+h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+button {
+  font-size: 14px;
+}

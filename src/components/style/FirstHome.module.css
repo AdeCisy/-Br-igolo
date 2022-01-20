@@ -25,6 +25,7 @@
   background-image: url('../../../public/assets/arrow-left.png');
   background-size: cover;
   margin-right: 10px;
+  margin-bottom: 0.5rem;
 }
 .continuer {
   display: flex;
