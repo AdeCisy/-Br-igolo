@@ -17,5 +17,47 @@
   background-color: #fff;
   text-decoration: none;
   outline: none;
+  font-family: Open Sans,mm-main,arial,sans-serif;
+letter-spacing: normal;
 }
 
+.imgContainer {
+  height: 40%;
+  width: 75%;
+
+  align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.contentContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+  overflow: hidden;
+}
+
+.shortTitle {
+  color: #0c193a;
+  width: 100%;
+  max-width: 100%;
+  height: 55px;
+  line-height: 18.3333333333px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  text-align: left;
+  font-weight: 600;
+}

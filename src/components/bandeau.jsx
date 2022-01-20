@@ -4,8 +4,8 @@ import styles from './style/bandeau.module.css';
 
 function RecommandationCard() {
   return <div class={styles.recoCardContainer}>
-      <div>
-        <img href="https://cdn.manomano.com/images/images_products/4298710/L/8831942_1.jpg"  alt=''/>
+      <div className={styles.imgContainer}>
+        <img className={styles.image} src="https://cdn.manomano.com/images/images_products/4298710/L/8831942_1.jpg"  alt=''/>
       </div>
       <div className={styles.contentContainer}>
         <div className={styles.shortTitle}>
