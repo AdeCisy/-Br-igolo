@@ -19,13 +19,14 @@ export default function FirstHome() {
   const [prenom1, setPrenom1] = useState();
 
   const templateParams = {
-    to_name: { prenom1 },
+    to_name:  prenom1,
     from_name: "Matthieu",
-    reply_to: { email1 },
+    reply_to: email1,
     message: `J'ai prévu des travaux le ${date}. Est-ce que tu peux m'aider à choisir le bon matériel ? Voici le panier que j'envisage : http://localhost:3000/invited`,
   };
 
   function HandleSendEmail() {
+    console.log(templateParams)
     emailjs
       .send(
         "service_6a148wq",
