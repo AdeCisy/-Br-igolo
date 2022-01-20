@@ -129,25 +129,19 @@ export default function FirstHome() {
           <div className={styles.buttonIntroPresentation}>
             <p className={styles.buttonIntroText}>
               Besoin d'un coup de main pour finaliser vos achats ? Demandez
-              l'avis de vos amis en cliquant ci-dessous !{" "}
+              l'avis de vos amis en cliquant ci-dessous !
             </p>
           </div>
           <Button className={styles.buttonShare} onClick={OpenModal}>
             Partager mon panier
           </Button>
-          <Slider />
           <Modal isOpen={open} toggle={() => setOpen(false)}>
-            <ModalHeader
-              style={{
-                color: "#0C193A",
-                fontSize: "0.8em",
-                textAlign: "center",
-              }}
-            >
-              Partage ton panier avec tes amis
+            <ModalHeader >
+              <p className={styles.modalHeader}>Partage ton panier avec tes amis</p>
             </ModalHeader>
-            <ModalBody>
-              <label for="start"> Date des travaux </label>
+            <ModalBody >
+              <div className={styles.modalInputMain}>
+              <label for="start" className={styles.modalDate}> Date des travaux : </label>
               <input
                 type="date"
                 id="start"
@@ -156,7 +150,7 @@ export default function FirstHome() {
                 max="2032-01-19"
                 onChange={(e) => setDate(e.target.value)}
               />
-              <label for="email"> Renseigne l'email de tes amis :</label>
+              <label for="email" className={styles.modalDateEmail}> Renseigne l'email de tes amis :</label>
               <input
                 placeholder="prénom"
                 type="text"
@@ -175,6 +169,11 @@ export default function FirstHome() {
                 required
               />
               <button onClick={handleDisplayNewFriend}>+</button>
+              <p className={styles.modalTemplateEmail}>Bonjour ! </p>
+              <p className={styles.modalTemplateEmail}>J'ai prévu des travaux le {date} ! </p>
+              <p className={styles.modalTemplateEmail}>Est-ce que tu peux m'aider à choisir le bon matériel ? </p>
+              <p className={styles.modalTemplateEmail}>Sur ce lien, voici le panier que j'envisage : http://localhost:3000/invited, n'hésites pas à ajouter des produits si il en manque. </p>
+              <p className={styles.modalTemplateEmail}>A bientôt ! </p>
               <div style={displayFriend}>
                 <input
                   placeholder="prénom"
@@ -191,10 +190,12 @@ export default function FirstHome() {
                   size="30"
                   required
                 />
+                
+                </div>
               </div>
             </ModalBody>
             <ModalFooter>
-              <button onClick={HandleSendEmail}>Send</button>
+              <button onClick={HandleSendEmail} className={styles.modalTemplateEmailButton} >Envoyer</button>
             </ModalFooter>
           </Modal>
         </div>
