@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
@@ -9,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/orga" element={<FirstHome />}></Route>
-        <Route path="/invited" element={<SecondHome />}></Route>
+        <Route exact path="/orga" element={<FirstHome />}></Route>
+        <Route exact path="/invited" element={<SecondHome />}></Route>
       </Routes>
     </div>
   );
