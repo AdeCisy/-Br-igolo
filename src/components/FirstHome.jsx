@@ -141,7 +141,7 @@ export default function FirstHome() {
             </ModalHeader>
             <ModalBody >
               <div className={styles.modalInputMain}>
-              <label for="start" className={styles.modalDate}> Date des travaux : </label>
+              <label htmlfor="start" className={styles.modalDate}> Date des travaux : </label>
               <input
                 type="date"
                 id="start"
@@ -150,7 +150,7 @@ export default function FirstHome() {
                 max="2032-01-19"
                 onChange={(e) => setDate(e.target.value)}
               />
-              <label for="email" className={styles.modalDateEmail}> Renseigne l'email de tes amis :</label>
+              <label htmlfor="email" className={styles.modalDateEmail}> Renseigne l'email de tes amis :</label>
               <input
                 placeholder="prénom"
                 type="text"
