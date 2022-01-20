@@ -5,7 +5,14 @@
   justify-content: flex-start;
 }
 
-.header {
+.headerCo {
+  background-image: url('../../../public/assets/header-co.jpg');
+  height: 17.7vh;
+  width: 100vw;
+  background-size: contain;
+  box-shadow: 0 0 16px 0 rgba(0,0,0,.16);
+}
+.headerDeco {
   background-image: url('../../../public/assets/header-deco.jpg');
   height: 17.7vh;
   width: 100vw;

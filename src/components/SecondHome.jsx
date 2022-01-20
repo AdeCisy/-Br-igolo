@@ -3,17 +3,13 @@ import CartCard from "./CartCard";
 import styles from './style/FirstHome.module.css';
 
 
-export default function FirstHome() {
+export default function SecondHome() {
 
   const [menuCursor, setMenuCursor] = useState(1);
 
   const handleCursor = (cursor) => {
     setMenuCursor(cursor);
   };
-  
-  // const totalPrice = menuCursor.map((product) => {
-  //   return product.prix * 
-  // })
 
   const [cartProducts, setCartProducts] = useState([{
       "id": 1,
@@ -26,7 +22,7 @@ export default function FirstHome() {
 
   return (
     <div className={styles.mainContainer}>
-      <div className={styles.headerCo}></div>
+      <div className={styles.headerDeco}></div>
       <div className={styles.continuer}>
         <div className={styles.LArrow}></div>
         <h4>Continuer mes achats</h4>
