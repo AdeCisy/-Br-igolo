@@ -71,7 +71,7 @@ export default function SecondHome() {
           cartProducts
             .filter((elt) => elt.id !== 1)
             .map((produit, index, menuCursor, handleCursor) => (
-              <div >
+              <div key={index}>
                 <CartCard
                   key={index}
                   produit={produit}
