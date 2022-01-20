@@ -46,9 +46,9 @@ export default function MyList() {
         id="cursor3"></div>
       </div>
       <div className={styles.titleList}>
-        <p>Ma liste partagée pour le <span>21 janvier 2022</span></p>
+        <p>Ma liste partagée pour le <span>6 février 2022</span></p>
       </div>
-      <div className={styles.cartProducts}>
+      <div className={styles.cartProductsHome}>
         {cartProducts && cartProducts.map((produit, menuCursor, handleCursor) => 
           <CartCard key={produit.id} produit={produit} menuCursor={menuCursor} handleCursor={handleCursor}/>
         )}

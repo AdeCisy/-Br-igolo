@@ -9,7 +9,7 @@ export default function SecondHome() {
   let navigate = useNavigate();
 
   const { cartProducts } = useContext(CartProductsContext);
-
+  const [button, setButton] = useState(false);
   const [menuCursor, setMenuCursor] = useState(3);
   // const totalPrice = cartProducts.map((item) => item.prix).reduce((prev, next) => prev + next);
 
@@ -25,6 +25,7 @@ export default function SecondHome() {
   function sendStorage () {
    localStorage.setItem('cart', JSON.stringify(cartProducts));
    console.log(localStorage.cart);
+   setButton(true);
   }
 
   return (
@@ -87,7 +88,7 @@ export default function SecondHome() {
               </div>
             ))}
       </div>
-      <button className={styles.guestButton} onClick={sendStorage} >Valider votre participation</button>
+      <button className={styles.guestButton} onClick={sendStorage} style={button ? {backgroundColor:'#505971', color:'white'}: null}>{button ? 'Merci de votre participation' : 'Valider votre participation'}</button>
       <Slider />
       <div className={styles.footer}></div>
     </div>
