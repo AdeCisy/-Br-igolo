@@ -68,6 +68,7 @@
   height: 4px;
 }
 .cartProducts {
+  height: auto;
   margin: 2vh;
 }
 .cartPrice {

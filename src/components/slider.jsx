@@ -31,8 +31,8 @@ function Slider() {
         className={styles.slider}
       >
         {dataToMap.length  && dataToMap.slice(1, 7).map((elt) => (
-          <SwiperSlide className={styles.slide} key={elt.index}>
-            <RecommandationCard produit={elt} key={elt.index} />
+          <SwiperSlide className={styles.slide} key={elt.id}>
+            <RecommandationCard produit={elt} key={elt.id} />
           </SwiperSlide>
         ))}
       </Swiper>

@@ -4,25 +4,26 @@ import {useNavigate} from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import emailjs from "@emailjs/browser";
 import CartCard from "./CartCard";
-import CartProductsContext from "../contexts/cartProducts";
-import styles from "./style/FirstHome.module.css";
+import CartProductsContext from '../contexts/cartProducts';
+import styles from './style/FirstHome.module.css';
+import Slider from "./slider";
 
 export default function FirstHome() {
   let navigate = useNavigate();
-  const { cartProducts, setCartProducts } = useContext(CartProductsContext);
+  const { cartProducts } = useContext(CartProductsContext);
 
-  const [open, setOpen] = useState(false);
-  const [openModal2, setOpenModal2] = useState(false);
-
-  const [displayFriend, setDisplayFriend] = useState({ visibility: "hidden" });
-
-  const [date, setDate] = useState();
-  const [email1, setEmail1] = useState();
-  const [prenom1, setPrenom1] = useState();
-
+  const [open, setOpen] = useState(false)
+  const [openModal2, setOpenModal2] = useState(false)
+  
+  const [displayFriend, setDisplayFriend] = useState({visibility: "hidden"})
+  const totalPrice = cartProducts.map(item => item.prix).reduce((prev, next) => prev + next);
+  const [date, setDate] = useState()
+  const [email1, setEmail1] = useState() 
+  const [prenom1, setPrenom1] = useState()
+  
   const templateParams = {
     to_name:  prenom1,
-    from_name: "Matthieu",
+    from_name: "Sophie",
     reply_to: email1,
     message: `J'ai prévu des travaux le ${date}. Est-ce que tu peux m'aider à choisir le bon matériel ? Voici le panier que j'envisage : http://localhost:3000/invited`,
   };
@@ -60,10 +61,8 @@ export default function FirstHome() {
   const handleCursor = (cursor) => {
     setMenuCursor(cursor);
   };
-
-  // const totalPrice = menuCursor.map((product) => {
-  //   return product.prix *
-  // })
+  
+ 
 
   const handleList = () => {
     handleCursor(3);
@@ -136,6 +135,7 @@ export default function FirstHome() {
           <Button className={styles.buttonShare} onClick={OpenModal}>
             Partager mon panier
           </Button>
+          <Slider />
           <Modal isOpen={open} toggle={() => setOpen(false)}>
             <ModalHeader
               style={{
@@ -206,27 +206,17 @@ export default function FirstHome() {
             </ModalBody>
           </Modal>
         </div>
-        <div className={styles.cartPrice}>
-          <div className={styles.cartSecondContainer}>
-            <div className={styles.cartText}>
-              <h3>Total du panier</h3>
-              <p>Frais de livraison calculés à l'étape suivante</p>
-            </div>
-            <h2>305 €</h2>
-          </div>
-
           <div className={styles.cartPrice}>
             <div className={styles.cartSecondContainer}>
               <div className={styles.cartText}>
                 <h3>Total du panier</h3>
                 <p>Frais de livraison calculés à l'étape suivante</p>
               </div>
-              <h2>305 €</h2>
+              <h2>{totalPrice} €</h2>
             </div>
             <button className={styles.cartButton}>Passer à la livraison</button>
           </div>
         </div>
       </div>
-    </div>
   );
 }
