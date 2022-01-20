@@ -234,6 +234,12 @@
   background-size: contain;
   width: 100vw;
   height: 16vh;
+}
+.footerFix {
+  background-image: url('../../../public/assets/footer.jpg');
+  background-size: contain;
+  width: 100vw;
+  height: 16vh;
   position: absolute;
   bottom: 0;
 }

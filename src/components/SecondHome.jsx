@@ -11,7 +11,6 @@ export default function SecondHome() {
   const { cartProducts } = useContext(CartProductsContext);
 
   const [menuCursor, setMenuCursor] = useState(3);
-  const totalPrice = cartProducts.map((item) => item.prix).reduce((prev, next) => prev + next);
 
   const handleCursor = (cursor) => {
     setMenuCursor(cursor);

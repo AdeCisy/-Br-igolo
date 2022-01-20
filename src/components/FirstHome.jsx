@@ -135,7 +135,6 @@ export default function FirstHome() {
           <Button className={styles.buttonShare} onClick={OpenModal}>
             Partager mon panier
           </Button>
-          <Slider />
           <Modal isOpen={open} toggle={() => setOpen(false)}>
             <ModalHeader
               style={{
