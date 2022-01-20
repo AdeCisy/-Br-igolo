@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CartCard from "./CartCard";
-import styles from './FirstHome.module.css';
+import styles from './style/FirstHome.module.css';
 
 
 export default function FirstHome() {
@@ -29,10 +29,9 @@ export default function FirstHome() {
         <div className={styles.cursor}></div>
       </div> */}
       <div className={styles.cartProducts}>
-        { cartProducts.map((produit) => {
-          return <CartCard key={produit.id} name={produit.name} vendeur={produit.vendeur} img={produit.imgUrl} prix={produit.prix}/>
-        })}
-        {/* <CartCard /> */}
+        {cartProducts && cartProducts.map((produit) => 
+          <CartCard key={produit.id} produit={produit}/>
+        )}
       </div>
       <div className={styles.cartPrice}></div>
     </div>
