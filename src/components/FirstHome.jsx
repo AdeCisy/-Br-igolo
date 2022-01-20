@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import CartCard from "./CartCard";
 import styles from './FirstHome.module.css';
 
 
 export default function FirstHome() {
+
+  const [cartProducts, setCartProducts] = useState([{
+      "id": 1,
+      "name": "Peinture intérieur Blanc Satin Murs & Plafonds Bicouche Acrylique 10L - 100m² - Blanc",
+      "productRef": "ME10486098",
+      "prix": 49,
+      "vendeur": "Renaulac",
+      "imgUrl": "https://cdn.manomano.com/peinture-interieur-blanc-satin-murs-plafonds-bicouche-acrylique-10l-100m-renaulac-blanc-P-4063946-10806872_1.jpg"
+    }])
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.header}></div>
@@ -19,10 +29,10 @@ export default function FirstHome() {
         <div className={styles.cursor}></div>
       </div> */}
       <div className={styles.cartProducts}>
-        {/* { products.map((produit) => {
+        { cartProducts.map((produit) => {
           return <CartCard key={produit.id} name={produit.name} vendeur={produit.vendeur} img={produit.imgUrl} prix={produit.prix}/>
-        })} */}
-        <CartCard />
+        })}
+        {/* <CartCard /> */}
       </div>
       <div className={styles.cartPrice}></div>
     </div>
