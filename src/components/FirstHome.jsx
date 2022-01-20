@@ -1,24 +1,29 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import emailjs from '@emailjs/browser';
 import CartCard from "./CartCard";
+import CartProductsContext from '../contexts/cartProducts';
 import styles from './style/FirstHome.module.css';
 
 
 export default function FirstHome() {
 
+  const { cartProducts, setCartProducts } = useContext(CartProductsContext);
+
   const [open, setOpen] = useState(false)
+  const [openModal2, setOpenModal2] = useState(false)
   
   const [displayFriend, setDisplayFriend] = useState({visibility: "hidden"})
 
   const [date, setDate] = useState()
   const [email1, setEmail1] = useState() 
+  const [prenom1, setPrenom1] = useState()
   
   const templateParams = {
-    to_name: 'Sophie',
+    to_name: {prenom1},
     from_name:'Matthieu',
     reply_to: {email1},
-    message: `I have forcasted works on ${date}`
+    message: `J'ai prévu des travaux le ${date}. Est-ce que tu peux m'aider à choisir le bon matériel ? Voici le panier que j'envisage : http://localhost:3000/invited`
 };
 
 function HandleSendEmail(){
@@ -28,6 +33,8 @@ function HandleSendEmail(){
 	}, (err) => {
 	   console.log('FAILED...', err);
 	});
+  setOpen(false)
+  setOpenModal2(true)
 }
 
   function OpenModal() {
@@ -46,15 +53,6 @@ function HandleSendEmail(){
   // const totalPrice = menuCursor.map((product) => {
   //   return product.prix * 
   // })
-
-  const [cartProducts, setCartProducts] = useState([{
-      "id": 1,
-      "name": "Peinture intérieur Blanc Satin Murs & Plafonds Bicouche Acrylique 10L - 100m² - Blanc",
-      "productRef": "ME10486098",
-      "prix": 49,
-      "vendeur": "Renaulac",
-      "imgUrl": "https://cdn.manomano.com/peinture-interieur-blanc-satin-murs-plafonds-bicouche-acrylique-10l-100m-renaulac-blanc-P-4063946-10806872_1.jpg"
-    }])
 
   return (
     <div className={styles.mainContainer}>
@@ -93,16 +91,23 @@ function HandleSendEmail(){
         <ModalBody>
           <label for='start'> Date des travaux</label>
           <input type='date' id='start' name='workStart' min='2022-01-19' max='2032-01-19' onChange={(e) => setDate(e.target.value)} />
-          <label for="email"> Renseigne l'email de tes amis :</label>
-          <input type="email" id="email1" onChange={(e) => setEmail1(e.target.value)} pattern=".+@globex.com" size="30" required />
+          <label for="email"> Renseigne le prénom et l'email de tes amis :</label>
+          <input placeholder='prénom' type="text" id="prenom1" onChange={(e) => setPrenom1(e.target.value)} size="30" required />
+          <input placeholder='email' type="email" id="email1" onChange={(e) => setEmail1(e.target.value)} pattern=".+@globex.com" size="30" required />
           <button onClick={handleDisplayNewFriend}>+</button>
           <div style={displayFriend}>
-          <input  type="email" id="email2" pattern=".+@globex.com" size="30" required />
+          <input placeholder='prénom' type="text" id="prenom2" size="30" required />
+          <input  placeholder='email' type="email" id="email2" pattern=".+@globex.com" size="30" required />
           </div>
         </ModalBody>
         <ModalFooter>
           <button onClick={HandleSendEmail}>Send</button>
         </ModalFooter>
+      </Modal>
+      <Modal isOpen={openModal2} toggle={() => setOpenModal2(false)}>
+        <ModalBody>
+          <div>Merci ! Un email à bien été envoyé à tes amis</div>
+        </ModalBody>
       </Modal>
       </div>
       <div className={styles.cartPrice}>

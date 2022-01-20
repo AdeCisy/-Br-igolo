@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route exact path="/orga" element={<FirstHome />}></Route>
-        <Route exact path="/invited" element={<SecondHome />}></Route>
+        <Route path="/orga" element={<FirstHome />}></Route>
+        <Route path="/invited" element={<SecondHome />}></Route>
       </Routes>
     </div>
   );
