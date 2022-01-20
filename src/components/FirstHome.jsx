@@ -13,12 +13,13 @@ export default function FirstHome() {
 
   const [date, setDate] = useState()
   const [email1, setEmail1] = useState() 
+  const [prenom1, setPrenom1] = useState()
   
   const templateParams = {
-    to_name: 'Sophie',
+    to_name: {prenom1},
     from_name:'Matthieu',
     reply_to: {email1},
-    message: `I have forcasted works on ${date}`
+    message: `J'ai prévu des travaux le ${date}. Est-ce que tu peux m'aider à choisir le bon matériel ? Voici le panier que j'envisage : http://localhost:3000/invited`
 };
 
 function HandleSendEmail(){
@@ -93,11 +94,13 @@ function HandleSendEmail(){
         <ModalBody>
           <label for='start'> Date des travaux</label>
           <input type='date' id='start' name='workStart' min='2022-01-19' max='2032-01-19' onChange={(e) => setDate(e.target.value)} />
-          <label for="email"> Renseigne l'email de tes amis :</label>
+          <label for="email"> Renseigne le prénom et l'email de tes amis :</label>
           <input type="email" id="email1" onChange={(e) => setEmail1(e.target.value)} pattern=".+@globex.com" size="30" required />
+          <input type="text" id="prenom1" onChange={(e) => setPrenom1(e.target.value)} size="30" required />
           <button onClick={handleDisplayNewFriend}>+</button>
           <div style={displayFriend}>
           <input  type="email" id="email2" pattern=".+@globex.com" size="30" required />
+          <input type="text" id="prenom2" size="30" required />
           </div>
         </ModalBody>
         <ModalFooter>
