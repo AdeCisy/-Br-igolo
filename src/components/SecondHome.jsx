@@ -46,22 +46,14 @@ export default function SecondHome() {
       </div>
       <div className={styles.titleList}>
           <p>Liste partagée de <span>Sophie</span></p>
+          <p className={styles.invited}>En tant qu'invité, vous pouvez ajouter des produits et modifier les quantités.</p>
       </div>
       <div className={styles.cartProducts}>
         {cartProducts && cartProducts.map((produit, menuCursor, handleCursor) => 
           <CartCard key={produit.id} produit={produit} menuCursor={menuCursor} handleCursor={handleCursor}/>
         )}
       </div>
-      <div className={styles.cartPrice}>
-        <div className={styles.cartSecondContainer}>
-          <div className={styles.cartText}>
-          <h3>Total du panier</h3>
-            <p>Frais de livraison calculés à l'étape suivante</p>
-          </div>
-          <h2>305 €</h2>
-        </div>
-        <button className={styles.cartButton}>Passer à la livraison</button>
-      </div>
+      <div className={styles.footer}></div>
     </div>
   )
 };
