@@ -11,6 +11,7 @@ export default function FirstHome() {
   const { cartProducts, setCartProducts } = useContext(CartProductsContext);
 
   const [open, setOpen] = useState(false)
+  const [openModal2, setOpenModal2] = useState(false)
   
   const [displayFriend, setDisplayFriend] = useState({visibility: "hidden"})
 
@@ -32,6 +33,8 @@ function HandleSendEmail(){
 	}, (err) => {
 	   console.log('FAILED...', err);
 	});
+  setOpen(false)
+  setOpenModal2(true)
 }
 
   function OpenModal() {
@@ -100,6 +103,11 @@ function HandleSendEmail(){
         <ModalFooter>
           <button onClick={HandleSendEmail}>Send</button>
         </ModalFooter>
+      </Modal>
+      <Modal isOpen={openModal2} toggle={() => setOpenModal2(false)}>
+        <ModalBody>
+          <div>Merci ! Un email à bien été envoyé à tes amis</div>
+        </ModalBody>
       </Modal>
       </div>
       <div className={styles.cartPrice}>
