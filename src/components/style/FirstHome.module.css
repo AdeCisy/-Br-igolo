@@ -68,7 +68,6 @@
   height: 4px;
 }
 .cartProducts {
-  height: 100vh;
   margin: 2vh;
 }
 .cartPrice {
@@ -110,6 +109,37 @@
   font-size: large;
   border-radius: 5px;
   border: none;
+}
+.buttonIntroText{
+  text-align: center;
+  color: white;
+  font-size: 0.8em;
+  padding-top: 2vh;
+  margin: 2vw;
+}
+
+.buttonHome{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  background-color: #505971;
+  margin: 2vw;
+  border-radius: 8px;
+  flex-direction: column;
+}
+
+.buttonShare{
+  font-size: 0.8em;
+  margin-bottom: 3vh;
+  background-color: #FBAA8E;
+  color: #0C193A;
+}
+
+.modalHeader{
+  color: #0C193A;
+  font-size: 0.8em;
+  text-align: center;
 }
 
 .sharedLists {
