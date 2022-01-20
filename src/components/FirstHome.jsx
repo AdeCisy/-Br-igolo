@@ -217,7 +217,7 @@ if (localStorage.getItem('cart')) {
 
           <Modal isOpen={openModal2} toggle={() => setOpenModal2(false)}>
             <ModalBody>
-              <div>Merci ! Un email a bien été envoyé à tes amis</div>
+              <div>Merci ! Un email a bien été envoyé à tes amis. Pensez à confirmer votre commande avant le 1er février 2022 pour être livré à temps. </div>
             </ModalBody>
           </Modal>
         </div>
