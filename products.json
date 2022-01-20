@@ -1,4 +1,4 @@
-[
+{ "products": [
   {
     "id": 1,
     "name": "Peinture intérieur Blanc Satin Murs & Plafonds Bicouche Acrylique 10L - 100m² - Blanc",
@@ -56,3 +56,4 @@
     "imgUrl": "https://cdn.manomano.com/images/images_products/29087/L/42235652_1.jpg"
   }
 ]
+}
