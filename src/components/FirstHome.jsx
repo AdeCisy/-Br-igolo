@@ -191,13 +191,10 @@ export default function FirstHome() {
           </Modal>
         </div>
         <div>
-          <Button color="danger" onClick={OpenModal}>
-            Partager mon panier
-          </Button>
 
           <Modal isOpen={openModal2} toggle={() => setOpenModal2(false)}>
             <ModalBody>
-              <div>Merci ! Un email à bien été envoyé à tes amis</div>
+              <div>Merci ! Un email a bien été envoyé à tes amis</div>
             </ModalBody>
           </Modal>
         </div>
