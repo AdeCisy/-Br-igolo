@@ -8,8 +8,13 @@ export default function FirstHome() {
 
   const [open, setOpen] = useState(false)
   
+  const [displayFriend, setDisplayFriend] = useState({visibility: "hidden"})
   function OpenModal() {
     setOpen(true)
+  }
+
+  function handleDisplayNewFriend() {
+    setDisplayFriend({visibility:"visible"})
   }
 
   return (
@@ -35,12 +40,20 @@ export default function FirstHome() {
       <Button color="danger" onClick={OpenModal}>Partager mon panier</Button>
       <Modal isOpen={open} toggle={() => setOpen(false)}>
         <ModalHeader>
-          Modal title
+          Partage ton panier avec tes amis
         </ModalHeader>
         <ModalBody>
-          Modal body text goes here.
+          <label for='start'> Date des travaux</label>
+          <input type='date' id='start' name='workStart' min='2022-01-19' max='2032-01-19' />
+          <label for="email"> Renseigne l'email de tes amis :</label>
+          <input type="email" id="email" pattern=".+@globex.com" size="30" required />
+          <button onClick={handleDisplayNewFriend}>+</button>
+          <div style={displayFriend}>
+          <input  type="email" id="email" pattern=".+@globex.com" size="30" required />
+          </div>
         </ModalBody>
         <ModalFooter>
+          <button>Send</button>
         </ModalFooter>
       </Modal>
       </div>
