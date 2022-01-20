@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CartCard from "./CartCard";
 import styles from './style/FirstHome.module.css';
 
 
 export default function FirstHome() {
 
-  // const cursor1 = document.getElementById('cursor1');
-  // const cursor2 = document.getElementById('cursor2');
-  // const cursor3 = document.getElementById('cursor3');
   const [menuCursor, setMenuCursor] = useState(1);
 
   const handleCursor = (cursor) => {
     setMenuCursor(cursor);
   };
   
-  // useEffect (() => {
-  //   menuCursor.className += ` ${styles['active']}`;
-  // }, [menuCursor])
+  // const totalPrice = menuCursor.map((product) => {
+  //   return product.prix * 
+  // })
 
   const [cartProducts, setCartProducts] = useState([{
       "id": 1,
@@ -35,9 +32,9 @@ export default function FirstHome() {
         <h4>Continuer mes achats</h4>
       </div>
       <div className={styles.onglets}>
-        <button className={styles.ongletActif} onClick={() => handleCursor(1)}>Panier ({cartProducts.length})</button>
-        <button onClick={() => handleCursor(2)}>Mis de côté</button>
-        <button onClick={() => handleCursor(3)}>Participatif</button>
+        <button className={styles.ongletActif} onClick={() => handleCursor(1)} style={ menuCursor===1 ? { color: `#0c193a` } : { color: `#505971` }}>Panier ({cartProducts.length})</button>
+        <button onClick={() => handleCursor(2)} style={ menuCursor===2 ? { color: `#0c193a` } : { color: `#505971` }}>Mis de côté</button>
+        <button onClick={() => handleCursor(3)} style={ menuCursor===3 ? { color: `#0c193a` } : { color: `#505971` }}>Participatif</button>
       </div>
       <div className={styles.cursorLine}>
         <div className={styles.cursor1} 
@@ -51,11 +48,20 @@ export default function FirstHome() {
         id="cursor3"></div>
       </div>
       <div className={styles.cartProducts}>
-        {cartProducts && cartProducts.map((produit) => 
-          <CartCard key={produit.id} produit={produit}/>
+        {cartProducts && cartProducts.map((produit, menuCursor, handleCursor) => 
+          <CartCard key={produit.id} produit={produit} menuCursor={menuCursor} handleCursor={handleCursor}/>
         )}
       </div>
-      <div className={styles.cartPrice}></div>
+      <div className={styles.cartPrice}>
+        <div className={styles.cartSecondContainer}>
+          <div className={styles.cartText}>
+            <h4>Total du panier</h4>
+            <p>Frais de livraison calculés à l'étape suivante</p>
+          </div>
+          <h2>305 €</h2>
+        </div>
+        <button className={styles.cartButton}>Passer à la livraison</button>
+      </div>
     </div>
   )
 };

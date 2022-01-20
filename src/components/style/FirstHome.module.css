@@ -85,7 +85,36 @@
   position: fixed;
   bottom: 0;
   left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   background-size: contain;
   box-shadow: 0 0 16px 0 rgba(0,0,0,.16);
-  background-image: url('../../../public/assets/panier.jpg');
+  background-color: #fff;
+  /* background-image: url('../../../public/assets/panier.jpg'); */
+}
+.cartSecondContainer {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+}
+.cartText {
+  display: flex;
+  flex-direction: column;
+}
+.cartPrice h2 {
+  font-size: 30px;
+  color: #0c193a;
+}
+.cartText p {
+  font-size: 12px;
+}
+.cartButton {
+  width: 90%;
+  height: 50px;
+  background-color: #29b9ad;
+  font-size: large;
+  border-radius: 5px;
+  border: none;
 }

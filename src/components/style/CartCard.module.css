@@ -43,3 +43,7 @@
   border: none;
   background-color: transparent;
 }
+.icon {
+  width: 12px;
+  margin-right: 5px;
+}
