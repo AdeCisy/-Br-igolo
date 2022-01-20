@@ -89,12 +89,12 @@ function HandleSendEmail(){
           <label for='start'> Date des travaux</label>
           <input type='date' id='start' name='workStart' min='2022-01-19' max='2032-01-19' onChange={(e) => setDate(e.target.value)} />
           <label for="email"> Renseigne le prénom et l'email de tes amis :</label>
-          <input type="email" id="email1" onChange={(e) => setEmail1(e.target.value)} pattern=".+@globex.com" size="30" required />
-          <input type="text" id="prenom1" onChange={(e) => setPrenom1(e.target.value)} size="30" required />
+          <input placeholder='prénom' type="text" id="prenom1" onChange={(e) => setPrenom1(e.target.value)} size="30" required />
+          <input placeholder='email' type="email" id="email1" onChange={(e) => setEmail1(e.target.value)} pattern=".+@globex.com" size="30" required />
           <button onClick={handleDisplayNewFriend}>+</button>
           <div style={displayFriend}>
-          <input  type="email" id="email2" pattern=".+@globex.com" size="30" required />
-          <input type="text" id="prenom2" size="30" required />
+          <input placeholder='prénom' type="text" id="prenom2" size="30" required />
+          <input  placeholder='email' type="email" id="email2" pattern=".+@globex.com" size="30" required />
           </div>
         </ModalBody>
         <ModalFooter>
