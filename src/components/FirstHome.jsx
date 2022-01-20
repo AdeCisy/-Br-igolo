@@ -1,5 +1,6 @@
 import React, {useState, useContext} from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {useNavigate} from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import CartCard from "./CartCard";
 import CartProductsContext from '../contexts/cartProducts';
@@ -7,6 +8,7 @@ import styles from './style/FirstHome.module.css';
 
 
 export default function FirstHome() {
+  let navigate = useNavigate();
 
   const { cartProducts, setCartProducts } = useContext(CartProductsContext);
 
@@ -50,6 +52,11 @@ function HandleSendEmail(){
   //   return product.prix * 
   // })
 
+  const handleList = () => {
+    handleCursor(3);
+    navigate('/listsorga');
+  }
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerCo}></div>
@@ -60,7 +67,7 @@ function HandleSendEmail(){
       <div className={styles.onglets}>
         <button className={styles.ongletActif} onClick={() => handleCursor(1)} style={ menuCursor===1 ? { color: `#0c193a` } : { color: `#505971` }}>Panier ({cartProducts.length})</button>
         <button onClick={() => handleCursor(2)} style={ menuCursor===2 ? { color: `#0c193a` } : { color: `#505971` }}>Mis de côté</button>
-        <button onClick={() => handleCursor(3)} style={ menuCursor===3 ? { color: `#0c193a` } : { color: `#505971` }}>Participatif</button>
+        <button onClick={() => handleList()} style={ menuCursor===3 ? { color: `#0c193a` } : { color: `#505971` }}>Participatif</button>
       </div>
       <div className={styles.cursorLine}>
         <div className={styles.cursor1} 

@@ -207,3 +207,7 @@
   border-top: 1px solid grey;
   padding-top: 2vh;
 }
+.noList {
+  margin: 1vw 2vw 3vw 2vw;
+  font-style: italic;
+}
