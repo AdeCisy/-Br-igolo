@@ -149,14 +149,15 @@ if (localStorage.getItem('cart')) {
           <Button className={styles.buttonShare} onClick={OpenModal}>
             Partager mon panier
           </Button>
-          <Modal isOpen={open} toggle={() => setOpen(false)}>
+          <Modal  isOpen={open} toggle={() => setOpen(false)}>
             <ModalHeader >
-              <p className={styles.modalHeader}>Partage ton panier avec tes amis</p>
+              <p className="modalHeader">Partage ton panier avec tes amis</p>
             </ModalHeader>
             <ModalBody >
-              <div className={styles.modalInputMain}>
-              <label htmlFor="start" className={styles.modalDate}> Date des travaux : </label>
-              <input
+              <div className="modalInputMain">
+                <div>
+              <label htmlFor="start" className="modalDate"> Date des travaux : </label>
+              <input className="modalInputData"
                 type="date"
                 id="start"
                 name="workStart"
@@ -164,7 +165,8 @@ if (localStorage.getItem('cart')) {
                 max="2032-01-19"
                 onChange={(e) => setDate(e.target.value)}
               />
-              <label htmlFor="email" className={styles.modalDateEmail}> Renseigne l'email de tes amis :</label>
+              </div>
+              <label htmlFor="email" className="modalDateEmail"> Renseigne l'email de tes amis :</label>
               <input
                 placeholder="prénom"
                 type="text"
@@ -182,7 +184,7 @@ if (localStorage.getItem('cart')) {
                 size="30"
                 required
               />
-              <button onClick={handleDisplayNewFriend}>+</button>
+              <button className="plusBtn" onClick={handleDisplayNewFriend}>+</button>
               <p className={styles.modalTemplateEmail}>Bonjour ! </p>
               <p className={styles.modalTemplateEmail}>J'ai prévu des travaux le {date} ! </p>
               <p className={styles.modalTemplateEmail}>Est-ce que tu peux m'aider à choisir le bon matériel ? </p>
@@ -209,7 +211,7 @@ if (localStorage.getItem('cart')) {
               </div>
             </ModalBody>
             <ModalFooter>
-              <button onClick={HandleSendEmail} className={styles.modalTemplateEmailButton} >Envoyer</button>
+              <button onClick={HandleSendEmail} className="modalTemplateEmailButton" >Envoyer</button>
             </ModalFooter>
           </Modal>
         </div>
