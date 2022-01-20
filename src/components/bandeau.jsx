@@ -2,6 +2,8 @@ import React from "react";
 
 import styles from './style/bandeau.module.css';
 
+import rating1 from '../../public/assets/rating1.png'
+
 function RecommandationCard() {
   return <div class={styles.recoCardContainer}>
       <div className={styles.imgContainer}>
@@ -12,7 +14,7 @@ function RecommandationCard() {
         SAVY - Rouleau anti-goutte avec rallonge - 180 mm
         </div>
         <div className={styles.rating}>
-          <img />
+          <img src={rating1} alt=''/>
         </div>
         <div className={styles.price}></div>
       </div>
