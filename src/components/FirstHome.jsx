@@ -32,8 +32,8 @@ export default function FirstHome() {
     console.log(templateParams)
     emailjs
       .send(
-        "service_6a148wq",
-        "template_n4bo00q",
+        "service_1tycmxw",
+        "template_ojxfzdm",
         templateParams,
         "user_xf2iWZaUeG71gXUlIEPyA"
       )
