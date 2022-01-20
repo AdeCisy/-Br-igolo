@@ -16,7 +16,7 @@ export default function CartCard({produit}) {
       </div>
       <div className={styles.productprice}>
         <h3>1</h3>
-        <h2>{produit.prix}</h2>
+        <h2>{produit.prix} €</h2>
       </div>
       <div className={styles.productOptions}>
         <button>Mettre de côté</button>
