@@ -6,12 +6,10 @@ import styles from './FirstHome.module.css';
 
 export default function FirstHome() {
 
-  const [open, setOpen] = useState({ modal: false})
+  const [open, setOpen] = useState(false)
   
   function OpenModal() {
-    setOpen((prevState => ({
-      modal: !prevState.modal
-    })))
+    setOpen(true)
   }
 
   return (
@@ -34,7 +32,7 @@ export default function FirstHome() {
         })} */}
         <CartCard />
       <div>
-      <Button color="danger" onClick={OpenModal}>Open Modal</Button>
+      <Button color="danger" onClick={OpenModal}>Partager mon panier</Button>
       <Modal isOpen={open} toggle={() => setOpen(false)}>
         <ModalHeader>
           Modal title
