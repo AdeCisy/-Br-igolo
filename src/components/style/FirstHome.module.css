@@ -1,0 +1,120 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header {
+  background-image: url('../../../public/assets/header-deco.jpg');
+  height: 17.7vh;
+  width: 100vw;
+  background-size: contain;
+  box-shadow: 0 0 16px 0 rgba(0,0,0,.16);
+}
+.LArrow {
+  height: 10px;
+  width: 10px;
+  background-image: url('../../../public/assets/arrow-left.png');
+  background-size: cover;
+  margin-right: 10px;
+}
+.continuer {
+  display: flex;
+  align-items: center;
+  margin: 2vh;
+  width: 90vw;
+}
+.onglets {
+  display: flex;
+  width: 90vw;
+  justify-content: space-evenly;
+}
+.onglets button {
+  height: 100%;
+  width: 29vw;
+  margin: 0;
+  border-radius: 0;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+/* .ongletActif {
+  border-bottom: 4px solid #0c193a;
+} */
+.cursor1, .cursor2, .cursor3 {
+  height: 100%;
+  width: 29vw;
+  border-bottom: 2px solid gray;
+}
+/* .active {
+  height: 100%;
+  width: 29vw;
+  background-color: #0c193a;  
+  border-bottom: 2px solid gray;
+} */
+.cursorLine {
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  height: 4px;
+}
+/* .cursor1 {
+  background-color: #0c193a;
+  border: none;
+  height: 4px;
+} */
+
+.cartProducts {
+  height: 100vh;
+  margin: 2vh;
+}
+.cartPrice {
+  height: 20vh;
+  width: 100vw;
+  z-index: 3;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-size: contain;
+  box-shadow: 0 0 16px 0 rgba(0,0,0,.16);
+  background-color: #fff;
+  /* background-image: url('../../../public/assets/panier.jpg'); */
+}
+.cartSecondContainer {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+}
+.cartText {
+  display: flex;
+  flex-direction: column;
+}
+.cartPrice h2 {
+  font-size: 30px;
+  color: #0c193a;
+}
+.cartText p {
+  font-size: 12px;
+}
+.cartButton {
+  width: 90%;
+  height: 50px;
+  background-color: #29b9ad;
+  font-size: large;
+  border-radius: 5px;
+  border: none;
+}

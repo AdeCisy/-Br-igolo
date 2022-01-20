@@ -1,44 +1,31 @@
 import React from "react";
-import styles from './CartCard.module.css';
+import styles from './style/CartCard.module.css';
 
 
-export default function CartCard(name, vendeur, img, prix) {
+export default function CartCard({produit} , menuCursor, handleCursor) {
+
   return (
     <div className={styles.productCard}>
-      {/* <div className={styles.productDesc}>
-        <img className={styles.productimg} src={img} alt={name} />
-        <div className={styles.productText}>
-          <h4>{name}</h4>
-          <p>Vendu par {vendeur}.</p>
-          <p>Livraison par <img className={styles.MmLogo} src="https://www.sdbpro.fr/wp-content/uploads/2018/09/Picto-ManoMano.jpg" alt="logo Manomano"/></p>
-        </div>
-      </div>
-      <div className={styles.productprice}>
-        <h3>1</h3>
-        <h2>{prix}</h2>
-      </div>
-      <div className={styles.productOptions}>
-        <button>Mettre de côté</button>
-        <button>supprimer</button>
-      </div> */}
-      <div className={styles.productCard}>
       <div className={styles.productDesc}>
-        <img className={styles.productimg} src='https://cdn.manomano.com/images/images_products/7666072/T/13575359_1.jpg' alt="perceuse" />
+        <img className={styles.productimg} src={produit.imgUrl} alt={produit.name} />
         <div className={styles.productText}>
-          <h4>Perceuse visseuse sans fil TEENO PSR 21V + 2 batteries lithium</h4>
-          <p>Vendu par Maxoutil.</p>
+          <h4>{produit.name}</h4>
+          <p>Vendu par {produit.vendeur}.</p>
           <p>Livraison par <img className={styles.MmLogo} src="https://www.sdbpro.fr/wp-content/uploads/2018/09/Picto-ManoMano.jpg" alt="logo Manomano"/></p>
         </div>
       </div>
       <div className={styles.productprice}>
         <h3>1</h3>
-        <h2>185€</h2>
+        <h2>{produit.prix} €</h2>
       </div>
       <div className={styles.productOptions}>
-        <button>Mettre de côté</button>
-        <button>supprimer</button>
+        {/* { menuCursor!==1 && <button onClick={() => handleCursor(1)}><img className={styles.icon} src="/assets/icon-cart.png" alt="icon cart"/>Panier</button>} */}
+        { menuCursor!==2 && <button onClick={() => handleCursor(2)}>
+          <img className={styles.icon} src="/assets/icon-pin.png" alt="icon pin"/>
+          Mettre de côté</button>}
+        { menuCursor!==3 && <button onClick={() => handleCursor(3)}><img className={styles.icon} src="/assets/icon-people.png" alt="icon people"/>Partager</button>}
+        <button><img className={styles.icon} src="/assets/icon-trashcan.png" alt="icon trashcan"/>Supprimer</button>
       </div>
-    </div>
     </div>
   )
 };
