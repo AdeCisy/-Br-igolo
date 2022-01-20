@@ -32,8 +32,8 @@ export default function FirstHome() {
     console.log(templateParams)
     emailjs
       .send(
-        "service_1tycmxw",
-        "template_ojxfzdm",
+        "service_6a148wq",
+        "template_n4bo00q",
         templateParams,
         "user_xf2iWZaUeG71gXUlIEPyA"
       )
@@ -141,7 +141,7 @@ export default function FirstHome() {
             </ModalHeader>
             <ModalBody >
               <div className={styles.modalInputMain}>
-              <label htmlfor="start" className={styles.modalDate}> Date des travaux : </label>
+              <label htmlFor="start" className={styles.modalDate}> Date des travaux : </label>
               <input
                 type="date"
                 id="start"
@@ -150,7 +150,7 @@ export default function FirstHome() {
                 max="2032-01-19"
                 onChange={(e) => setDate(e.target.value)}
               />
-              <label htmlfor="email" className={styles.modalDateEmail}> Renseigne l'email de tes amis :</label>
+              <label htmlFor="email" className={styles.modalDateEmail}> Renseigne l'email de tes amis :</label>
               <input
                 placeholder="prénom"
                 type="text"
