@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import emailjs from '@emailjs/browser';
 import CartCard from "./CartCard";
 import styles from './FirstHome.module.css';
 
@@ -9,6 +10,24 @@ export default function FirstHome() {
   const [open, setOpen] = useState(false)
   
   const [displayFriend, setDisplayFriend] = useState({visibility: "hidden"})
+
+
+  const templateParams = {
+    to_name: 'Sophie',
+    from_name:'Matthieu',
+    reply_to: 'sophie.lepert@gmail.com',
+    message: 'Test test test'
+};
+
+function HandleSendEmail(){
+  emailjs.send('service_6a148wq','template_n4bo00q', templateParams, 'user_xf2iWZaUeG71gXUlIEPyA')
+	.then((response) => {
+	   console.log('SUCCESS!', response.status, response.text);
+	}, (err) => {
+	   console.log('FAILED...', err);
+	});
+}
+
   function OpenModal() {
     setOpen(true)
   }
@@ -53,7 +72,7 @@ export default function FirstHome() {
           </div>
         </ModalBody>
         <ModalFooter>
-          <button>Send</button>
+          <button onClick={HandleSendEmail}>Send</button>
         </ModalFooter>
       </Modal>
       </div>
