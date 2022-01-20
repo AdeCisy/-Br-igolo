@@ -1,10 +1,42 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import emailjs from '@emailjs/browser';
 import CartCard from "./CartCard";
 import styles from './style/FirstHome.module.css';
 
 
 export default function FirstHome() {
 
+  const [open, setOpen] = useState(false)
+  
+  const [displayFriend, setDisplayFriend] = useState({visibility: "hidden"})
+
+  const [date, setDate] = useState()
+  const [email1, setEmail1] = useState() 
+  
+  const templateParams = {
+    to_name: 'Sophie',
+    from_name:'Matthieu',
+    reply_to: {email1},
+    message: `I have forcasted works on ${date}`
+};
+
+function HandleSendEmail(){
+  emailjs.send('service_6a148wq','template_n4bo00q', templateParams, 'user_xf2iWZaUeG71gXUlIEPyA')
+	.then((response) => {
+	   console.log('SUCCESS!', response.status, response.text);
+	}, (err) => {
+	   console.log('FAILED...', err);
+	});
+}
+
+  function OpenModal() {
+    setOpen(true)
+  }
+
+  function handleDisplayNewFriend() {
+    setDisplayFriend({visibility:"visible"})
+  }
   const [menuCursor, setMenuCursor] = useState(1);
 
   const handleCursor = (cursor) => {
@@ -51,6 +83,27 @@ export default function FirstHome() {
         {cartProducts && cartProducts.map((produit, menuCursor, handleCursor) => 
           <CartCard key={produit.id} produit={produit} menuCursor={menuCursor} handleCursor={handleCursor}/>
         )}
+      </div>
+      <div>
+      <Button color="danger" onClick={OpenModal}>Partager mon panier</Button>
+      <Modal isOpen={open} toggle={() => setOpen(false)}>
+        <ModalHeader>
+          Partage ton panier avec tes amis
+        </ModalHeader>
+        <ModalBody>
+          <label for='start'> Date des travaux</label>
+          <input type='date' id='start' name='workStart' min='2022-01-19' max='2032-01-19' onChange={(e) => setDate(e.target.value)} />
+          <label for="email"> Renseigne l'email de tes amis :</label>
+          <input type="email" id="email1" onChange={(e) => setEmail1(e.target.value)} pattern=".+@globex.com" size="30" required />
+          <button onClick={handleDisplayNewFriend}>+</button>
+          <div style={displayFriend}>
+          <input  type="email" id="email2" pattern=".+@globex.com" size="30" required />
+          </div>
+        </ModalBody>
+        <ModalFooter>
+          <button onClick={HandleSendEmail}>Send</button>
+        </ModalFooter>
+      </Modal>
       </div>
       <div className={styles.cartPrice}>
         <div className={styles.cartSecondContainer}>
