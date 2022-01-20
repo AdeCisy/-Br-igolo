@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useContext } from "react";
+import {useNavigate} from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import emailjs from "@emailjs/browser";
 import CartCard from "./CartCard";
@@ -7,9 +8,8 @@ import CartProductsContext from '../contexts/cartProducts';
 import styles from './style/FirstHome.module.css';
 import Slider from "./slider";
 
-
 export default function FirstHome() {
-
+  let navigate = useNavigate();
   const { cartProducts } = useContext(CartProductsContext);
 
   const [open, setOpen] = useState(false)
@@ -23,7 +23,7 @@ export default function FirstHome() {
   
   const templateParams = {
     to_name:  prenom1,
-    from_name: "Matthieu",
+    from_name: "Sophie",
     reply_to: email1,
     message: `J'ai prévu des travaux le ${date}. Est-ce que tu peux m'aider à choisir le bon matériel ? Voici le panier que j'envisage : http://localhost:3000/invited`,
   };
@@ -64,6 +64,11 @@ export default function FirstHome() {
   
  
 
+  const handleList = () => {
+    handleCursor(3);
+    navigate('/listsorga');
+  }
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerCo}></div>
@@ -86,7 +91,7 @@ export default function FirstHome() {
           Mis de côté
         </button>
         <button
-          onClick={() => handleCursor(3)}
+          onClick={() => handleList()}
           style={menuCursor === 3 ? { color: `#0c193a` } : { color: `#505971` }}
         >
           Participatif
@@ -130,6 +135,7 @@ export default function FirstHome() {
           <Button className={styles.buttonShare} onClick={OpenModal}>
             Partager mon panier
           </Button>
+          <Slider />
           <Modal isOpen={open} toggle={() => setOpen(false)}>
             <ModalHeader >
               <p className={styles.modalHeader}>Partage ton panier avec tes amis</p>
