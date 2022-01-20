@@ -44,7 +44,7 @@
   margin: 0;
   border-radius: 0;
   padding: 8px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   text-align: center;
   text-decoration: none;
@@ -56,32 +56,17 @@
   justify-content: center;
   position: relative;
 }
-/* .ongletActif {
-  border-bottom: 4px solid #0c193a;
-} */
 .cursor1, .cursor2, .cursor3 {
   height: 100%;
   width: 29vw;
   border-bottom: 2px solid gray;
 }
-/* .active {
-  height: 100%;
-  width: 29vw;
-  background-color: #0c193a;  
-  border-bottom: 2px solid gray;
-} */
 .cursorLine {
   width: 90vw;
   display: flex;
   justify-content: space-between;
   height: 4px;
 }
-/* .cursor1 {
-  background-color: #0c193a;
-  border: none;
-  height: 4px;
-} */
-
 .cartProducts {
   height: 100vh;
   margin: 2vh;
@@ -156,4 +141,92 @@
   color: #0C193A;
   font-size: 0.8em;
   text-align: center;
+}
+
+.sharedLists {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vw;
+}
+.list {
+  display: flex;
+  background-color: #fff;
+  margin: 2vw;
+  width: 90vw;
+  justify-content: space-between;
+  align-items: center;
+  height: 5vh;
+}
+.list p {
+  margin: 0 2vw;
+  font-size: 14px;
+}
+.list p span {
+  font-weight: 900;
+}
+.list h4 {
+  margin: 0 2vw;
+}
+.titleList {
+  display: flex;
+  background-color: #fff;
+  margin: 2vw 2vw 0 2vw;
+  width: 90vw;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+}
+.titleList p {
+  margin: 0 2vw;
+  font-size: 14px;
+}
+.titleList p span {
+  font-weight: 900;
+}
+
+.myList {
+  display: flex;
+  background-color: #56dbd0;
+  margin: 2vw;
+  width: 90vw;
+  justify-content: space-between;
+  align-items: center;
+  height: 5vh;
+}
+.myList p {
+  margin: 0 2vw;
+  font-size: 14px;
+}
+.myList p span {
+  font-weight: 900;
+}
+.myList h4 {
+  margin: 0 2vw;
+}
+.myLists {
+  font-weight: 700;
+  width: 90vw;
+  margin: auto;
+  color: #0c193a;
+}
+.otherLists {
+  color: #505971;
+  font-weight: 700;
+  width: 90vw;
+  margin: auto;
+  border-top: 1px solid grey;
+  padding-top: 2vh;
+}
+.noList {
+  margin: 1vw 2vw 3vw 2vw;
+  font-style: italic;
+}
+
+.footer {
+  background-image: url('../../../public/assets/footer.jpg');
+  background-size: contain;
+  width: 100vw;
+  height: 16vh;
+  position: absolute;
+  bottom: 0;
 }
