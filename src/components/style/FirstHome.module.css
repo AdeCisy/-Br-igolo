@@ -83,7 +83,7 @@
 } */
 
 .cartProducts {
-  height: 100vh;
+  height: auto;
   margin: 2vh;
 }
 .cartPrice {
