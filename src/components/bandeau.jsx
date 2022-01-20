@@ -11,7 +11,9 @@ function RecommandationCard() {
         <div className={styles.shortTitle}>
         SAVY - Rouleau anti-goutte avec rallonge - 180 mm
         </div>
-        <div className={styles.rating}></div>
+        <div className={styles.rating}>
+          <img />
+        </div>
         <div className={styles.price}></div>
       </div>
   </div>;
