@@ -11,12 +11,14 @@ export default function FirstHome() {
   
   const [displayFriend, setDisplayFriend] = useState({visibility: "hidden"})
 
-
+  const [date, setDate] = useState()
+  const [email1, setEmail1] = useState() 
+  
   const templateParams = {
     to_name: 'Sophie',
     from_name:'Matthieu',
-    reply_to: 'sophie.lepert@gmail.com',
-    message: 'Test test test'
+    reply_to: {email1},
+    message: `I have forcasted works on ${date}`
 };
 
 function HandleSendEmail(){
@@ -63,12 +65,12 @@ function HandleSendEmail(){
         </ModalHeader>
         <ModalBody>
           <label for='start'> Date des travaux</label>
-          <input type='date' id='start' name='workStart' min='2022-01-19' max='2032-01-19' />
+          <input type='date' id='start' name='workStart' min='2022-01-19' max='2032-01-19' onChange={(e) => setDate(e.target.value)} />
           <label for="email"> Renseigne l'email de tes amis :</label>
-          <input type="email" id="email" pattern=".+@globex.com" size="30" required />
+          <input type="email" id="email1" onChange={(e) => setEmail1(e.target.value)} pattern=".+@globex.com" size="30" required />
           <button onClick={handleDisplayNewFriend}>+</button>
           <div style={displayFriend}>
-          <input  type="email" id="email" pattern=".+@globex.com" size="30" required />
+          <input  type="email" id="email2" pattern=".+@globex.com" size="30" required />
           </div>
         </ModalBody>
         <ModalFooter>
