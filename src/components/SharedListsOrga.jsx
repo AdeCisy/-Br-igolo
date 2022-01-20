@@ -54,7 +54,7 @@ export default function SharedListsOrga() {
           <h4>28 produits</h4>
         </div>
       </div>
-      <div className={styles.footer}></div>
+      <div className={styles.footerFix}></div>
     </div>
   )
 };

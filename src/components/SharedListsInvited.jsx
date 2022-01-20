@@ -47,7 +47,7 @@ export default function SharedListsInvited() {
           <h4>{cartProducts.length} produits</h4>
         </div>
       </div>
-      <div className={styles.footer}></div>
+      <div className={styles.footerFix}></div>
     </div>
   )
 };
