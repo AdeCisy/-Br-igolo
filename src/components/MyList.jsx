@@ -4,7 +4,7 @@ import styles from './style/FirstHome.module.css';
 import CartProductsContext from '../contexts/cartProducts';
 
 
-export default function SecondHome() {
+export default function MyList() {
 
   const { cartProducts, setCartProducts } = useContext(CartProductsContext);
 
@@ -16,7 +16,7 @@ export default function SecondHome() {
 
   return (
     <div className={styles.mainContainer}>
-      <div className={styles.headerDeco}></div>
+      <div className={styles.headerCo}></div>
       <div className={styles.continuer}>
         <div className={styles.LArrow}></div>
         <h4>Continuer mes achats</h4>
@@ -38,7 +38,7 @@ export default function SecondHome() {
         id="cursor3"></div>
       </div>
       <div className={styles.titleList}>
-          <p>Liste partagée de <span>Sophie</span></p>
+        <p>Ma liste partagée pour le <span>21 janvier 2022</span></p>
       </div>
       <div className={styles.cartProducts}>
         {cartProducts && cartProducts.map((produit, menuCursor, handleCursor) => 
