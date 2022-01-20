@@ -1,11 +1,14 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import emailjs from '@emailjs/browser';
 import CartCard from "./CartCard";
+import CartProductsContext from '../contexts/cartProducts';
 import styles from './style/FirstHome.module.css';
 
 
 export default function FirstHome() {
+
+  const { cartProducts, setCartProducts } = useContext(CartProductsContext);
 
   const [open, setOpen] = useState(false)
   
@@ -47,15 +50,6 @@ function HandleSendEmail(){
   // const totalPrice = menuCursor.map((product) => {
   //   return product.prix * 
   // })
-
-  const [cartProducts, setCartProducts] = useState([{
-      "id": 1,
-      "name": "Peinture intérieur Blanc Satin Murs & Plafonds Bicouche Acrylique 10L - 100m² - Blanc",
-      "productRef": "ME10486098",
-      "prix": 49,
-      "vendeur": "Renaulac",
-      "imgUrl": "https://cdn.manomano.com/peinture-interieur-blanc-satin-murs-plafonds-bicouche-acrylique-10l-100m-renaulac-blanc-P-4063946-10806872_1.jpg"
-    }])
 
   return (
     <div className={styles.mainContainer}>

@@ -1,7 +1,6 @@
 import React from "react";
 import styles from './style/CartCard.module.css';
 
-
 export default function CartCard({produit} , menuCursor, handleCursor) {
 
   return (
@@ -23,7 +22,6 @@ export default function CartCard({produit} , menuCursor, handleCursor) {
         { menuCursor!==2 && <button onClick={() => handleCursor(2)}>
           <img className={styles.icon} src="/assets/icon-pin.png" alt="icon pin"/>
           Mettre de côté</button>}
-        { menuCursor!==3 && <button onClick={() => handleCursor(3)}><img className={styles.icon} src="/assets/icon-people.png" alt="icon people"/>Partager</button>}
         <button><img className={styles.icon} src="/assets/icon-trashcan.png" alt="icon trashcan"/>Supprimer</button>
       </div>
     </div>
