@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {useNavigate} from 'react-router-dom';
 import CartCard from "./CartCard";
 import styles from './style/FirstHome.module.css';
@@ -21,6 +21,18 @@ export default function MyList() {
     handleCursor(1);
     navigate('/orga');
   }
+
+  useEffect(() => {
+    // console.log(localStorage.cart);
+if (localStorage.getItem('cart')) {
+  const newData = JSON.parse(localStorage.getItem('cart'));
+  console.log(newData);
+  // console.log('hello');
+  setCartProducts(newData);
+  localStorage.clear();
+}
+  }, []);
+  
 
   return (
     <div className={styles.mainContainer}>
