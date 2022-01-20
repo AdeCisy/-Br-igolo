@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import FirstHome from './components/FirstHome';
 import SecondHome from './components/SecondHome';
+import SharedLists from './components/SharedLists';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/orga" element={<FirstHome />}></Route>
         <Route path="/invited" element={<SecondHome />}></Route>
+        <Route path="/lists" element={<SharedLists />}></Route>
       </Routes>
     </div>
   );
