@@ -41,7 +41,7 @@ export default function SharedListsOrga() {
       <div className={styles.sharedLists}>
         <div className={styles.myLists}>Mes listes partagées</div>
         <div className={styles.myList} onClick={()=> navigate('/mylist')}>
-          <p>Ma liste partagée pour le <span>21 janvier 2022</span></p>
+          <p>Ma liste partagée pour le <span>6 février 2022</span></p>
           <h4>{cartProducts.length} {cartProducts.length>1 ? 'produits' : 'produit'}</h4>
         </div>
         <div className={styles.otherLists}>Les listes partagées de mes amis</div>
