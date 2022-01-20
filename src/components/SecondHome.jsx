@@ -11,6 +11,7 @@ export default function SecondHome() {
   const { cartProducts } = useContext(CartProductsContext);
 
   const [menuCursor, setMenuCursor] = useState(3);
+  // const totalPrice = cartProducts.map((item) => item.prix).reduce((prev, next) => prev + next);
 
   const handleCursor = (cursor) => {
     setMenuCursor(cursor);
@@ -19,6 +20,11 @@ export default function SecondHome() {
   const handleList = () => {
     handleCursor(3);
     navigate('/listsinvited');
+  }
+
+  function sendStorage () {
+   localStorage.setItem('cart', JSON.stringify(cartProducts));
+   console.log(localStorage.cart);
   }
 
   return (
@@ -81,6 +87,7 @@ export default function SecondHome() {
               </div>
             ))}
       </div>
+      <button className={styles.guestButton} onClick={sendStorage} >Valider votre participation</button>
       <Slider />
       <div className={styles.footer}></div>
     </div>

@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useContext } from "react";
+
+import React, { useState, useContext, useEffect } from "react";
+
 import {useNavigate} from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import emailjs from "@emailjs/browser";
@@ -9,8 +11,9 @@ import styles from './style/FirstHome.module.css';
 import Slider from "./slider";
 
 export default function FirstHome() {
+  const { cartProducts, setCartProducts } = useContext(CartProductsContext);
+
   let navigate = useNavigate();
-  const { cartProducts } = useContext(CartProductsContext);
 
   const [open, setOpen] = useState(false)
   const [openModal2, setOpenModal2] = useState(false)
@@ -61,8 +64,19 @@ export default function FirstHome() {
   const handleCursor = (cursor) => {
     setMenuCursor(cursor);
   };
+
+  useEffect(() => {
+    // console.log(localStorage.cart);
+if (localStorage.getItem('cart')) {
+  const newData = JSON.parse(localStorage.getItem('cart'));
+  console.log(newData);
+  // console.log('hello');
+  setCartProducts(newData);
+  localStorage.clear();
+} else console.log('coucou');
+  }, []);
   
- 
+
 
   const handleList = () => {
     handleCursor(3);
