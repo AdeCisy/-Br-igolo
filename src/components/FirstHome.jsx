@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
+
 import React, { useState, useContext, useEffect } from "react";
+
+import {useNavigate} from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import emailjs from "@emailjs/browser";
 import CartCard from "./CartCard";
@@ -7,10 +10,10 @@ import CartProductsContext from '../contexts/cartProducts';
 import styles from './style/FirstHome.module.css';
 import Slider from "./slider";
 
-
 export default function FirstHome() {
-
   const { cartProducts, setCartProducts } = useContext(CartProductsContext);
+
+  let navigate = useNavigate();
 
   const [open, setOpen] = useState(false)
   const [openModal2, setOpenModal2] = useState(false)
@@ -32,8 +35,8 @@ export default function FirstHome() {
     console.log(templateParams)
     emailjs
       .send(
-        "service_6a148wq",
-        "template_n4bo00q",
+        "service_1tycmxw",
+        "template_ojxfzdm",
         templateParams,
         "user_xf2iWZaUeG71gXUlIEPyA"
       )
@@ -75,6 +78,11 @@ if (localStorage.getItem('cart')) {
   
 
 
+  const handleList = () => {
+    handleCursor(3);
+    navigate('/listsorga');
+  }
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerCo}></div>
@@ -97,7 +105,7 @@ if (localStorage.getItem('cart')) {
           Mis de côté
         </button>
         <button
-          onClick={() => handleCursor(3)}
+          onClick={() => handleList()}
           style={menuCursor === 3 ? { color: `#0c193a` } : { color: `#505971` }}
         >
           Participatif
@@ -135,24 +143,19 @@ if (localStorage.getItem('cart')) {
           <div className={styles.buttonIntroPresentation}>
             <p className={styles.buttonIntroText}>
               Besoin d'un coup de main pour finaliser vos achats ? Demandez
-              l'avis de vos amis en cliquant ci-dessous !{" "}
+              l'avis de vos amis en cliquant ci-dessous !
             </p>
           </div>
           <Button className={styles.buttonShare} onClick={OpenModal}>
             Partager mon panier
           </Button>
           <Modal isOpen={open} toggle={() => setOpen(false)}>
-            <ModalHeader
-              style={{
-                color: "#0C193A",
-                fontSize: "0.8em",
-                textAlign: "center",
-              }}
-            >
-              Partage ton panier avec tes amis
+            <ModalHeader >
+              <p className={styles.modalHeader}>Partage ton panier avec tes amis</p>
             </ModalHeader>
-            <ModalBody>
-              <label for="start"> Date des travaux </label>
+            <ModalBody >
+              <div className={styles.modalInputMain}>
+              <label htmlFor="start" className={styles.modalDate}> Date des travaux : </label>
               <input
                 type="date"
                 id="start"
@@ -161,7 +164,7 @@ if (localStorage.getItem('cart')) {
                 max="2032-01-19"
                 onChange={(e) => setDate(e.target.value)}
               />
-              <label for="email"> Renseigne l'email de tes amis :</label>
+              <label htmlFor="email" className={styles.modalDateEmail}> Renseigne l'email de tes amis :</label>
               <input
                 placeholder="prénom"
                 type="text"
@@ -180,6 +183,11 @@ if (localStorage.getItem('cart')) {
                 required
               />
               <button onClick={handleDisplayNewFriend}>+</button>
+              <p className={styles.modalTemplateEmail}>Bonjour ! </p>
+              <p className={styles.modalTemplateEmail}>J'ai prévu des travaux le {date} ! </p>
+              <p className={styles.modalTemplateEmail}>Est-ce que tu peux m'aider à choisir le bon matériel ? </p>
+              <p className={styles.modalTemplateEmail}>Sur ce lien, voici le panier que j'envisage : http://localhost:3000/invited, n'hésites pas à ajouter des produits si il en manque. </p>
+              <p className={styles.modalTemplateEmail}>A bientôt ! </p>
               <div style={displayFriend}>
                 <input
                   placeholder="prénom"
@@ -196,10 +204,12 @@ if (localStorage.getItem('cart')) {
                   size="30"
                   required
                 />
+                
+                </div>
               </div>
             </ModalBody>
             <ModalFooter>
-              <button onClick={HandleSendEmail}>Send</button>
+              <button onClick={HandleSendEmail} className={styles.modalTemplateEmailButton} >Envoyer</button>
             </ModalFooter>
           </Modal>
         </div>

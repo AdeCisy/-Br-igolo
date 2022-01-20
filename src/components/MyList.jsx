@@ -7,8 +7,9 @@ import CartProductsContext from '../contexts/cartProducts';
 
 export default function MyList() {
   let navigate = useNavigate();
-
+  
   const { cartProducts, setCartProducts } = useContext(CartProductsContext);
+  const totalPrice = cartProducts.map(item => item.prix).reduce((prev, next) => prev + next);
 
   const [menuCursor, setMenuCursor] = useState(3);
 
@@ -58,7 +59,7 @@ export default function MyList() {
           <h3>Total du panier</h3>
             <p>Frais de livraison calculés à l'étape suivante</p>
           </div>
-          <h2>305 €</h2>
+          <h2>{totalPrice} €</h2>
         </div>
         <button className={styles.cartButton}>Passer à la livraison</button>
       </div>
