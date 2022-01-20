@@ -1,0 +1,21 @@
+.recoCardContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  flex-direction: column;
+  min-width: 210px;
+  max-width: 210px;
+  height: 35vh;
+  border: 1px solid #ecedf0;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+  box-sizing: border-box;
+  background-color: #fff;
+  text-decoration: none;
+  outline: none;
+}
+
