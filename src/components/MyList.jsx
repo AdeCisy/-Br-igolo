@@ -33,6 +33,15 @@ if (localStorage.getItem('cart')) {
 }
   }, []);
   
+  const handleList = () => {
+    handleCursor(3);
+    navigate('/listsorga');
+  }
+
+  const handleList1 = () => {
+    handleCursor(1);
+    navigate('/orga');
+  }
 
   return (
     <div className={styles.mainContainer}>
@@ -42,9 +51,9 @@ if (localStorage.getItem('cart')) {
         <h4>Continuer mes achats</h4>
       </div>
       <div className={styles.onglets}>
-        <button className={styles.ongletActif} onClick={() => handleCart()} style={ menuCursor===1 ? { color: `#0c193a` } : { color: `#505971` }}>Panier</button>
+        <button className={styles.ongletActif} onClick={() => handleList1()} style={ menuCursor===1 ? { color: `#0c193a` } : { color: `#505971` }}>Panier</button>
         <button onClick={() => handleCursor(2)} style={ menuCursor===2 ? { color: `#0c193a` } : { color: `#505971` }}>Mis de côté</button>
-        <button onClick={() => handleCursor(3)} style={ menuCursor===3 ? { color: `#0c193a` } : { color: `#505971` }}>Participatif ({cartProducts.length})</button>
+        <button onClick={() => handleList()} style={ menuCursor===3 ? { color: `#0c193a` } : { color: `#505971` }}>Participatif ({cartProducts.length})</button>
       </div>
       <div className={styles.cursorLine}>
         <div className={styles.cursor1} 
