@@ -138,8 +138,10 @@
 
 .modalHeader{
   color: #0C193A;
-  font-size: 0.8em;
+  font-size: 1em;
   text-align: center;
+  margin-left: 11vw;
+margin-top: 2vh;
 }
 
 .sharedLists {

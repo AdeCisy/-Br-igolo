@@ -129,17 +129,12 @@ export default function FirstHome() {
             Partager mon panier
           </Button>
           <Modal isOpen={open} toggle={() => setOpen(false)}>
-            <ModalHeader
-              style={{
-                color: "#0C193A",
-                fontSize: "0.8em",
-                textAlign: "center",
-              }}
-            >
-              Partage ton panier avec tes amis
+            <ModalHeader >
+              <p className={styles.modalHeader}>Partage ton panier avec tes amis</p>
             </ModalHeader>
-            <ModalBody>
-              <label for="start"> Date des travaux </label>
+            <ModalBody >
+              <div className={styles.modalInputMain}>
+              <label for="start" className={styles.modalDate}> Date des travaux </label>
               <input
                 type="date"
                 id="start"
@@ -167,6 +162,7 @@ export default function FirstHome() {
                 required
               />
               <button onClick={handleDisplayNewFriend}>+</button>
+              <p>J'ai prévu des travaux le {date} ! Est-ce que tu peux m'aider à choisir le bon matériel ? Sur ce lien, voici le panier que j'envisage : http://localhost:3000/invited</p>
               <div style={displayFriend}>
                 <input
                   placeholder="prénom"
@@ -183,6 +179,8 @@ export default function FirstHome() {
                   size="30"
                   required
                 />
+                
+                </div>
               </div>
             </ModalBody>
             <ModalFooter>
