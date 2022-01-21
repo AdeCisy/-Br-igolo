@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  margin-bottom: 2vh;
 }
 .productDesc {
   margin: 2vh;
@@ -32,8 +33,11 @@
 }
 .productprice {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+}
+.productprice h2 {
+  margin-right: 8vw;
 }
 .productOptions {
   display: flex;
@@ -49,4 +53,33 @@
 .icon {
   width: 12px;
   margin-right: 5px;
+}
+.quantity {
+ display: flex;
+ align-items: center;
+ border: 1px solid rgb(185, 185, 185);
+ width: 30vw;
+ height: 5vh;
+ margin-left: 8vw;
+}
+.quantity button {
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  border: none;
+  margin: 1vh;
+}
+.quantityPlus {
+  background-image: url('../../../public/assets/icon-plus.png');
+  background-size: cover;
+}
+.quantityMinus {
+  background-image: url('../../../public/assets/icon-minus.png');
+  background-size: cover;
+}
+.quantityNumber {
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  margin: auto;
 }

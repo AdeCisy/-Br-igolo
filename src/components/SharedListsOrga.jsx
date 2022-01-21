@@ -15,6 +15,11 @@ export default function SharedListsOrga() {
     setMenuCursor(cursor);
   };
 
+  const handleList1 = () => {
+    handleCursor(1);
+    navigate('/orga');
+  }
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerCo}></div>
@@ -23,7 +28,7 @@ export default function SharedListsOrga() {
         <h4>Continuer mes achats</h4>
       </div>
       <div className={styles.onglets}>
-        <button className={styles.ongletActif} onClick={() => handleCursor(1)} style={ menuCursor===1 ? { color: `#0c193a` } : { color: `#505971` }}>Panier</button>
+        <button className={styles.ongletActif} onClick={() => handleList1()} style={ menuCursor===1 ? { color: `#0c193a` } : { color: `#505971` }}>Panier</button>
         <button onClick={() => handleCursor(2)} style={ menuCursor===2 ? { color: `#0c193a` } : { color: `#505971` }}>Mis de côté</button>
         <button onClick={() => handleCursor(3)} style={ menuCursor===3 ? { color: `#0c193a` } : { color: `#505971` }}>Participatif (3)</button>
       </div>
@@ -41,7 +46,7 @@ export default function SharedListsOrga() {
       <div className={styles.sharedLists}>
         <div className={styles.myLists}>Mes listes partagées</div>
         <div className={styles.myList} onClick={()=> navigate('/mylist')}>
-          <p>Ma liste partagée pour le <span>21 janvier 2022</span></p>
+          <p>Ma liste partagée pour le <span>6 février 2022</span></p>
           <h4>{cartProducts.length} {cartProducts.length>1 ? 'produits' : 'produit'}</h4>
         </div>
         <div className={styles.otherLists}>Les listes partagées de mes amis</div>
@@ -54,7 +59,7 @@ export default function SharedListsOrga() {
           <h4>28 produits</h4>
         </div>
       </div>
-      <div className={styles.footer}></div>
+      <div className={styles.footerFix}></div>
     </div>
   )
 };

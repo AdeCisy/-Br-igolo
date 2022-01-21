@@ -1,35 +1,42 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useContext } from "react";
+
+import React, { useState, useContext, useEffect } from "react";
+
+import {useNavigate} from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import emailjs from "@emailjs/browser";
 import CartCard from "./CartCard";
-import CartProductsContext from "../contexts/cartProducts";
-import styles from "./style/FirstHome.module.css";
+import CartProductsContext from '../contexts/cartProducts';
+import styles from './style/FirstHome.module.css';
+import Slider from "./slider";
 
 export default function FirstHome() {
   const { cartProducts, setCartProducts } = useContext(CartProductsContext);
 
-  const [open, setOpen] = useState(false);
-  const [openModal2, setOpenModal2] = useState(false);
+  let navigate = useNavigate();
 
-  const [displayFriend, setDisplayFriend] = useState({ visibility: "hidden" });
-
-  const [date, setDate] = useState();
-  const [email1, setEmail1] = useState();
-  const [prenom1, setPrenom1] = useState();
-
+  const [open, setOpen] = useState(false)
+  const [openModal2, setOpenModal2] = useState(false)
+  
+  const [displayFriend, setDisplayFriend] = useState({visibility: "hidden"})
+  const totalPrice = cartProducts.map(item => item.prix).reduce((prev, next) => prev + next);
+  const [date, setDate] = useState()
+  const [email1, setEmail1] = useState() 
+  const [prenom1, setPrenom1] = useState()
+  
   const templateParams = {
-    to_name: { prenom1 },
-    from_name: "Matthieu",
-    reply_to: { email1 },
+    to_name:  prenom1,
+    from_name: "Sophie",
+    reply_to: email1,
     message: `J'ai prévu des travaux le ${date}. Est-ce que tu peux m'aider à choisir le bon matériel ? Voici le panier que j'envisage : http://localhost:3000/invited`,
   };
 
   function HandleSendEmail() {
+    console.log(templateParams)
     emailjs
       .send(
-        "service_6a148wq",
-        "template_n4bo00q",
+        "service_1tycmxw",
+        "template_ojxfzdm",
         templateParams,
         "user_xf2iWZaUeG71gXUlIEPyA"
       )
@@ -58,9 +65,23 @@ export default function FirstHome() {
     setMenuCursor(cursor);
   };
 
-  // const totalPrice = menuCursor.map((product) => {
-  //   return product.prix *
-  // })
+  useEffect(() => {
+    // console.log(localStorage.cart);
+if (localStorage.getItem('cart')) {
+  const newData = JSON.parse(localStorage.getItem('cart'));
+  console.log(newData);
+  // console.log('hello');
+  setCartProducts(newData);
+  localStorage.clear();
+} else console.log('coucou');
+  }, []);
+  
+
+
+  const handleList = () => {
+    handleCursor(3);
+    navigate('/listsorga');
+  }
 
   return (
     <div className={styles.mainContainer}>
@@ -84,7 +105,7 @@ export default function FirstHome() {
           Mis de côté
         </button>
         <button
-          onClick={() => handleCursor(3)}
+          onClick={() => handleList()}
           style={menuCursor === 3 ? { color: `#0c193a` } : { color: `#505971` }}
         >
           Participatif
@@ -122,25 +143,21 @@ export default function FirstHome() {
           <div className={styles.buttonIntroPresentation}>
             <p className={styles.buttonIntroText}>
               Besoin d'un coup de main pour finaliser vos achats ? Demandez
-              l'avis de vos amis en cliquant ci-dessous !{" "}
+              l'avis de vos amis en cliquant ci-dessous !
             </p>
           </div>
           <Button className={styles.buttonShare} onClick={OpenModal}>
             Partager mon panier
           </Button>
-          <Modal isOpen={open} toggle={() => setOpen(false)}>
-            <ModalHeader
-              style={{
-                color: "#0C193A",
-                fontSize: "0.8em",
-                textAlign: "center",
-              }}
-            >
-              Partage ton panier avec tes amis
+          <Modal  isOpen={open} toggle={() => setOpen(false)}>
+            <ModalHeader >
+              <p className="modalHeader">Partage ton panier avec tes amis</p>
             </ModalHeader>
-            <ModalBody>
-              <label for="start"> Date des travaux </label>
-              <input
+            <ModalBody >
+              <div className="modalInputMain">
+                <div>
+              <label htmlFor="start" className="modalDate"> Date des travaux : </label>
+              <input className="modalInputData"
                 type="date"
                 id="start"
                 name="workStart"
@@ -148,7 +165,8 @@ export default function FirstHome() {
                 max="2032-01-19"
                 onChange={(e) => setDate(e.target.value)}
               />
-              <label for="email"> Renseigne l'email de tes amis :</label>
+              </div>
+              <label htmlFor="email" className="modalDateEmail"> Renseigne l'email de tes amis :</label>
               <input
                 placeholder="prénom"
                 type="text"
@@ -166,7 +184,12 @@ export default function FirstHome() {
                 size="30"
                 required
               />
-              <button onClick={handleDisplayNewFriend}>+</button>
+              <button className="plusBtn" onClick={handleDisplayNewFriend}>+</button>
+              <p className={styles.modalTemplateEmail}>Bonjour ! </p>
+              <p className={styles.modalTemplateEmail}>J'ai prévu des travaux le {date} ! </p>
+              <p className={styles.modalTemplateEmail}>Est-ce que tu peux m'aider à choisir le bon matériel ? </p>
+              <p className={styles.modalTemplateEmail}>Sur ce lien, voici le panier que j'envisage : http://localhost:3000/invited, n'hésites pas à ajouter des produits si il en manque. </p>
+              <p className={styles.modalTemplateEmail}>A bientôt ! </p>
               <div style={displayFriend}>
                 <input
                   placeholder="prénom"
@@ -183,10 +206,12 @@ export default function FirstHome() {
                   size="30"
                   required
                 />
+                
+                </div>
               </div>
             </ModalBody>
             <ModalFooter>
-              <button onClick={HandleSendEmail}>Send</button>
+              <button onClick={HandleSendEmail} className="modalTemplateEmailButton" >Envoyer</button>
             </ModalFooter>
           </Modal>
         </div>
@@ -194,31 +219,21 @@ export default function FirstHome() {
 
           <Modal isOpen={openModal2} toggle={() => setOpenModal2(false)}>
             <ModalBody>
-              <div>Merci ! Un email a bien été envoyé à tes amis</div>
+              <div>Merci ! Un email a bien été envoyé à tes amis. Pensez à confirmer votre commande avant le 1er février 2022 pour être livré à temps. </div>
             </ModalBody>
           </Modal>
         </div>
-        <div className={styles.cartPrice}>
-          <div className={styles.cartSecondContainer}>
-            <div className={styles.cartText}>
-              <h3>Total du panier</h3>
-              <p>Frais de livraison calculés à l'étape suivante</p>
-            </div>
-            <h2>305 €</h2>
-          </div>
-
           <div className={styles.cartPrice}>
             <div className={styles.cartSecondContainer}>
               <div className={styles.cartText}>
                 <h3>Total du panier</h3>
                 <p>Frais de livraison calculés à l'étape suivante</p>
               </div>
-              <h2>305 €</h2>
+              <h2>{totalPrice} €</h2>
             </div>
             <button className={styles.cartButton}>Passer à la livraison</button>
           </div>
         </div>
       </div>
-    </div>
   );
 }

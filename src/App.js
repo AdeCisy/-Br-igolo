@@ -3,6 +3,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
+import './components/style/modal.css'
 import FirstHome from './components/FirstHome';
 import MyList from './components/MyList';
 import SecondHome from './components/SecondHome';

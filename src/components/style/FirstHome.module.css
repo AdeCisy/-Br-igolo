@@ -68,7 +68,13 @@
   height: 4px;
 }
 .cartProducts {
+  height: auto;
   margin: 2vh;
+}
+.cartProductsHome {
+  height: auto;
+  margin: 2vh;
+  margin-bottom: 22vh;
 }
 .cartPrice {
   height: 20vh;
@@ -127,6 +133,7 @@
   margin: 2vw;
   border-radius: 8px;
   flex-direction: column;
+  margin-bottom: 150px;
 }
 
 .buttonShare{
@@ -134,12 +141,39 @@
   margin-bottom: 3vh;
   background-color: #FBAA8E;
   color: #0C193A;
+
 }
 
 .modalHeader{
   color: #0C193A;
-  font-size: 0.8em;
+  font-size: 1em;
   text-align: center;
+  margin-left: 11vw;
+  margin-top: 2vh;
+
+}
+
+.modalInputMain{
+  height: 60vh;
+}
+
+.modalDate, .modalDateEmail{
+  color: #0C193A;
+}
+
+.modalTemplateEmail{
+  font-size: 1em;
+  color: #0C193A;
+  margin-top: 1vh;
+}
+
+.modalTemplateEmailButton{
+  font-size: 1em;
+  color: white;
+  background-color: #505971;
+  padding:1vh;
+  border-radius: 8px;
+  width: 30%;
 }
 
 .sharedLists {
@@ -168,12 +202,13 @@
 }
 .titleList {
   display: flex;
+  flex-direction: column;
   background-color: #fff;
   margin: 2vw 2vw 0 2vw;
   width: 90vw;
   justify-content: center;
   align-items: center;
-  height: 5vh;
+  height: 10vh;
 }
 .titleList p {
   margin: 0 2vw;
@@ -181,6 +216,12 @@
 }
 .titleList p span {
   font-weight: 900;
+}
+.invited {
+  margin: 1vw 2vw 3vw 2vw;
+  text-align: center;
+  font-style: italic;
+  color: #505971;
 }
 
 .myList {
@@ -226,6 +267,22 @@
   background-size: contain;
   width: 100vw;
   height: 16vh;
+}
+.footerFix {
+  background-image: url('../../../public/assets/footer.jpg');
+  background-size: contain;
+  width: 100vw;
+  height: 16vh;
   position: absolute;
   bottom: 0;
+}
+
+.guestButton {
+  margin: 30px auto;
+  width: 90%;
+  height: 50px;
+  background-color: #29b9ad;
+  font-size: large;
+  border-radius: 5px;
+  border: none;
 }
